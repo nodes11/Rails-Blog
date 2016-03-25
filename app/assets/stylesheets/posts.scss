@@ -1,0 +1,49 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.comment{
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 40%;
+  margin-top: 3%;
+  padding-left: 3%;
+}
+
+.comment-box{
+  border: 2px solid black;
+  border-radius: 5px;
+
+}
+
+.post{
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 85%;
+  padding-left: 3%;
+  padding-bottom: 1.5%;
+}
+
+.post-content{
+
+}
+
+.post-title{
+  font-size: 20pt;
+}
+
+.click-buttons{
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  padding-left: 3%;
+  padding-right: 3%;
+
+  text-decoration: none;
+
+  color: black;
+  font-size: 9pt;
+}
+
+.click-buttons:hover{
+  background-color: white;
+  color: black;
+}

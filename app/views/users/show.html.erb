@@ -1,0 +1,28 @@
+<h1><%= User.find(params[:id]).name %>'s Blog</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Conent</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.conent %></td>
+        <td><%= link_to "View More!", post %></td>
+
+        <%if User.find_by(id: post.user_id).id == current_user.id || current_user.isAdmin == 1%>
+          <td><%= link_to 'Edit', edit_post_path(post) %></td>
+          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>

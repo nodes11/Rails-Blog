@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<headerBar>
+  <div class="header-left">
+    <% if current_user %>
+      <strong class"title"><%= current_user.name %>'s Blog |</strong>
+      <%= link_to " Logout", logout_path, class: "links"%>
+    <% else %>
+      <strong class"title"> Blogs ||</strong>
+      <%= link_to "| Signup", signup_path, class: "links"%>
+      <%= link_to "Login |", login_path, class: "links"%>
+    <% end %>
+  </div>
+
+  <div class="header-right">
+    &nbsp;
+        <% if current_user %>
+           <%= link_to "Home |", posts_path, class: "links"%>
+        <% else %>
+           <%= link_to "Home |", root_path, class: "links"%>
+        <% end %>
+        <%= link_to "| View other blogs!", users_path, class: "links"%>
+  </div>
+</headerBar>
+<body>
+<div class="main">
+  <%= yield %>
+</div>
+</body>
+</html>

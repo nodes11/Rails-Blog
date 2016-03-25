@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><h2>Title</h2></th>
+
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><b><%= post.title %></b></td>
+        <td><%= link_to 'More', post, class: "click-buttons" %></td>
+
+        <%if User.find_by(id: post.user_id).id == current_user.id || current_user.isAdmin == 1%>
+          <td><%= link_to 'Edit', edit_post_path(post), class: "click-buttons" %></td>
+          <td><%= link_to 'Destroy', post,class: "click-buttons", method: :delete, data: { confirm: 'Are you sure?'} %></td>
+        <% end %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path, class: "click-buttons" %>

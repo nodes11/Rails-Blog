@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<div class="post">
+  <p>
+    <div class="post-title"><h2><%= @post.title %></h2></div>
+    <h3><%= User.find_by(id: @post.user_id).name %></h3>
+  </p>
+  <p>
+    <div>
+    <div class="post-content"><%= @post.conent %></div>
+  </div>
+  </p>
+
+  <%if User.find_by(id: @post.user_id).id == current_user.id || current_user.isAdmin == 1%>
+    <%= link_to 'Edit', edit_post_path(@post), class: "click-buttons" %>
+  <%end%>
+  <%= link_to 'Back', posts_path, class: "click-buttons" %>
+</div>
+
+
+<p>
+  <br>
+  <strong><%= @post.comments.count %> Comments:</strong>
+  <br>
+  <% @post.comments.each do |c| %>
+  <div class="comment">
+    <% if c.blog_post_id == @post.id%>
+      <br>
+        <strong><%= User.find_by(id: c.userNum).name%></strong>
+      <br>
+      <br>
+        <%= c.body %>
+      <br>
+      <br>
+      <%if User.find_by(id: c.userNum).id == current_user.id || current_user.isAdmin == 1%>
+        <br>
+        <%= link_to 'Edit', edit_comment_path(c), class: "click-buttons" %>
+        <br>
+        <%= button_to 'Delete', c, :method => 'delete'%>
+        <br>
+      <%end%>
+    </div>
+    <% end %>
+  <% end %>
+</p>
+<br>
+<p>
+    <%= form_for [@post, @post.comments.new] do |c| %>
+      <strong>Add Comment:</strong>
+      <br>
+      <%= c.text_area :body, size: "72%x9%", class: "comment-box" %>
+      <%= c.hidden_field :blog_post_id, :value => @post.id %>
+      <%= c.hidden_field :post_id, :value => @post.id %>
+      <%= c.hidden_field :userNum, :value => current_user.id%>
+      <br>
+      <%= c.submit%>
+    <% end %>
+</p>

@@ -1,0 +1,105 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+html*{
+    font-family: "Trebuchet MS" !important;
+    z-index: 0;
+}
+
+headerBar{
+  top: 0px;
+  background-color: black;
+  color: white;
+  font-family: "Trebuchet MS";
+  font-size: 20pt;
+  display: block;
+
+  position: fixed;
+
+  width: 92.5%;
+  height: 30px;
+
+  padding-left: 1%;
+  padding-right: 5%;
+  padding-top: 1.5%;
+  z-index: 2;
+  left: .75%
+}
+
+headerBar > .header-left > .links {
+  color: gray;
+  text-decoration: none;
+  position: relative;
+  float: right;
+
+  font-size: 15pt;
+}
+
+headerBar > .header-right > .links {
+  color: gray;
+  text-decoration: none;
+  position: relative;
+
+  font-size: 15pt;
+}
+
+headerBar > .header-left > .links:hover {
+  color: white;
+}
+
+headerBar > .header-right > .links:hover {
+  color: white;
+}
+
+headerBar > .header-left > strong {
+  float: left;
+  position: relative;
+  color: white;
+}
+
+
+body{
+  z-index: 1;
+  top: 60px;
+  position: relative;
+  border: 2px solid black;
+  height: 100%;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.main{
+  margin-left: 10%;
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
+h1{
+  font-size: 30pt;
+  color: gray;
+  position: relative;
+  z-index: 2;
+}
+
+.nav-link{
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: black;
+  text-decoration-color: white;
+  text-decoration: none;
+  height: 20px;
+  width: 30px;
+}
