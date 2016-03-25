@@ -1,2 +1,2 @@
 # Rails-Blog
-Pr
+Project for my web development class.
